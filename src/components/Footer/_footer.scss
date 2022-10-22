@@ -1,0 +1,159 @@
+        @use '../../main styles/colors'as*;
+        @use '../../main styles/mixins/cool-titles'as*;
+        .footer {
+            background-color: $footer-color;
+            .container {
+                .footer__title {
+                    @include cool-title-2;
+                    text-align: center;
+                    font-size: 62px;
+                    line-height: 75px;
+                    margin: 0 auto 50px;
+                    letter-spacing: -0.04em;
+                    max-width: 70%;
+                }
+                .footer__reaquest-btn {
+                    width: fit-content;
+                    margin: 0 auto;
+                    color: #fff;
+                    padding: 20px;
+                    border: 1px solid;
+                    cursor: pointer;
+                    margin-bottom: 100px;
+                    position: relative;
+                    font-weight: bold;
+                    z-index: 10000;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        right: -40px;
+                        top: 50%;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        transform: translateY(-50%);
+                        background: $gradient-bar;
+                        transition: .3s all ease-in-out;
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: -40px;
+                        top: 50%;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        transform: translateY(-50%);
+                        background: $gradient-bar;
+                        transition: .3s all ease-in-out;
+                    }
+                    &:hover::after {
+                        animation: cool-title-left .6s linear forwards;
+                        z-index: -1;
+                    }
+                    &:hover::before {
+                        animation: cool-title-right .6s linear forwards;
+                        z-index: -1;
+                    }
+                }
+                .footer__containe {
+                    color: #fff;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 50px;
+                    gap: 60px;
+                    .box {
+                        .links {
+                            li {
+                                opacity: .7;
+                                margin-bottom: 25px;
+                            }
+                            li.active {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                    .box:first-child {
+                        img {
+                            margin-bottom: 20px;
+                        }
+                        p {
+                            max-width: 60%;
+                            opacity: .7;
+                        }
+                    }
+                }
+                .finish {
+                    color: #fff;
+                    text-align: center;
+                    opacity: .7;
+                    font-size: 12px;
+                }
+            }
+        }
+        
+        // Responsive ^___^
+        // ======= > Medium Screen < ======= 
+        @media (max-width: 992px) {
+            .footer {
+                .container {
+                    .footer__title {
+                        font-size: 42px;
+                        line-height: 55px;
+                    }
+                }
+            }
+        }
+        
+        // ======= > Small Screen < ======= 
+        @media (max-width: 668px) {
+            .footer {
+                text-align: center;
+                .container {
+                    .footer__title {
+                        font-size: 32px;
+                        line-height: 45px;
+                    }
+                    .footer__reaquest-btn {
+                        font-size: 14px;
+                    }
+                    .footer__containe {
+                        flex-direction: column;
+                        .box:first-child {
+                            p {
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        // ======= > Animation < ======= 
+        @keyframes cool-title-left {
+            0% {
+                left: -40px;
+                width: 20px;
+                height: 20px;
+            }
+            100% {
+                left: 0;
+                width: 50%;
+                height: 100%;
+                border-radius: 0;
+            }
+        }
+        
+        @keyframes cool-title-right {
+            0% {
+                right: -40px;
+                width: 20px;
+                height: 20px;
+            }
+            100% {
+                right: 0;
+                width: 50%;
+                height: 100%;
+                border-radius: 0;
+            }
+        }

@@ -1,0 +1,6 @@
+@use '../colors'as*;
+@mixin text {
+    color: $text-color;
+    font-size: 16px;
+    line-height: 30px;
+}

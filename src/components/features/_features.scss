@@ -1,0 +1,77 @@
+@use '../../main styles/colors'as*;
+@use '../../main styles/mixins/cool-titles'as*;
+@use '../../main styles/mixins/text'as*;
+.features {
+    .container {
+        display: flex;
+        align-items: center;
+    }
+    .features__heading {
+        margin-right: 100px;
+        .feature {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            h1 {
+                @include cool-title-2;
+                max-width: 800px;
+            }
+            p {
+                color: $subtext-color;
+            }
+        }
+    }
+    .features__containe {
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            gap: 50px;
+            h1 {
+                @include cool-title-1;
+                font-size: 18px;
+                flex-basis: 60%;
+            }
+            p {
+                @include text;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+// Responsive ^___^
+// ======= > Medium Screen < ======= 
+@media (max-width: 992px) {
+    .features {
+        .container {
+            flex-direction: column;
+            text-align: center;
+            .features__heading {
+                margin-right: 0;
+                margin-bottom: 50px;
+                .feature {
+                    flex-direction: column;
+                    text-align: center;
+                    align-items: center;
+                    gap: 50px;
+                }
+            }
+            .features__containe {
+                .feature {
+                    flex-direction: column;
+                }
+                h1 {
+                    margin: 30px auto;
+                    &::after {
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+                p {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

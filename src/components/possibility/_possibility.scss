@@ -1,0 +1,39 @@
+@use '../../main styles/colors'as*;
+@use '../../main styles/mixins/cool-titles'as*;
+@use '../../main styles/mixins/text'as*;
+.possibility {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 50px;
+        align-items: center;
+        .possibility__containe-heading {
+            color: $text-color;
+            margin-bottom: 20px;
+        }
+        .possibility__containe-title {
+            @include cool-title-2;
+            margin-bottom: 20px;
+        }
+        .possibility__containe-info {
+            @include text;
+            margin-bottom: 20px;
+        }
+        .possibility__containe-footer {
+            color: $subtext-color;
+        }
+    }
+}
+
+// Responsive ^___^
+// ======= > Small Screen < ======= 
+@media (max-width: 668px) {
+    .possibility {
+        text-align: center;
+        .container {
+            .possibility__containe-info {
+                font-size: 12px;
+            }
+        }
+    }
+}

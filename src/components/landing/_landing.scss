@@ -1,0 +1,142 @@
+    @use '../../main styles/colors'as*;
+    @use '../../main styles/mixins/Button'as*;
+    .landing {
+        .container {
+            display: flex;
+            align-items: flex-start;
+            .landing__content {
+                padding: 50px 0;
+                flex-basis: 250%;
+                h1 {
+                    background: $gradient-text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-weight: 900;
+                    font-size: 60px;
+                    line-height: 75px;
+                    letter-spacing: -3.5px;
+                    margin-bottom: 20px;
+                }
+                .landing-info {
+                    color: $text-color;
+                    font-family: 'Manrope';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 27px;
+                    margin-bottom: 20px;
+                }
+                form {
+                    display: flex;
+                    margin-bottom: 20px;
+                    input[type="text"] {
+                        background-color: $footer-color;
+                        padding: 20px;
+                        outline: none;
+                        flex-basis: 80%;
+                        color: #fff;
+                        font-weight: 400;
+                        border: none;
+                        line-height: 27px;
+                        font-size: 20px;
+                    }
+                    input[type="submit"] {
+                        background-color: #ff4820;
+                        font-size: 20px;
+                        line-height: 27px;
+                        outline: none;
+                        flex: 1;
+                        color: #fff;
+                        font-weight: bold;
+                        @include btn;
+                    }
+                }
+                .people {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    .people-text {
+                        color: #fff;
+                        font-weight: 500;
+                        font-size: 12px;
+                        line-height: 38px;
+                    }
+                }
+            }
+        }
+    }
+    
+    // Responsive ^___^
+    // ======= > Medium Screen < ======= 
+    @media (max-width: 992px) {
+        .landing {
+            .container {
+                flex-direction: column;
+                text-align: center;
+                position: relative;
+                .landing__content {
+                    z-index: 1;
+                    h1 {
+                        font-size: 50px;
+                        line-height: 65px;
+                        letter-spacing: -1.5px;
+                    }
+                    .landing-info {
+                        font-size: 16px;
+                        line-height: 32px
+                    }
+                    form {
+                        input[type="text"] {
+                            font-size: 16px;
+                            line-height: 32px
+                        }
+                        input[type="submit"] {
+                            font-size: 16px;
+                            line-height: 32px
+                        }
+                    }
+                    .people {
+                        justify-content: center;
+                    }
+                }
+            }
+            .landing__img {
+                position: absolute;
+                z-index: 0;
+                opacity: .4;
+                top: -100px
+            }
+        }
+    }
+    
+    // ======= > Small Screen < ======= 
+    @media (max-width: 668px) {
+        .landing {
+            .container {
+                .landing__content {
+                    h1 {
+                        font-size: 40px;
+                        line-height: 60px;
+                        letter-spacing: -1.5px;
+                    }
+                    .landing-info {
+                        font-size: 14px;
+                        line-height: 27px;
+                    }
+                    form {
+                        input[type="text"] {
+                            font-size: 14px;
+                            line-height: 27px;
+                        }
+                        input[type="submit"] {
+                            font-size: 14px;
+                            line-height: 27px;
+                        }
+                    }
+                }
+            }
+            .landing__img {
+                top: -20px
+            }
+        }
+    }

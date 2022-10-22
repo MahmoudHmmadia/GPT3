@@ -1,0 +1,18 @@
+@use './main styles/global-roles';
+@use './main styles/colors'as*;
+@use './components/Header/Header';
+@use './components/landing/landing';
+@use './components/companies/companies';
+@use './components/what is gpt3/what-is-gpt3';
+@use './components/features/features';
+@use './components/possibility/possibility';
+@use './components/register/register';
+@use './components/blog/blog';
+@use './components/Footer/footer';
+.home {
+    background: $geadient-bg;
+}
+
+.gradient-circle {
+    background: radial-gradient(circle at 8% 35%, #002853 0%, #040C18 25%);
+}

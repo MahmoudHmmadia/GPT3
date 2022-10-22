@@ -1,0 +1,113 @@
+@use '../../main styles/colors'as*;
+@use '../../main styles/mixins/cool-titles'as*;
+.blog {
+    .container {
+        color: #fff;
+        .blog__title {
+            @include cool-title-2;
+            font-size: 62px;
+            line-height: 75px;
+            margin-bottom: 100px;
+        }
+        .blog__main {
+            display: flex;
+            position: relative;
+            gap: 20px;
+            .big-box {
+                .box {
+                    height: 100%;
+                    .box__containe {
+                        flex: 1;
+                        .info {
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+            .other-boxes {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .box {
+                display: flex;
+                flex-direction: column;
+                .box__containe {
+                    background-color: $blog-color;
+                    padding: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    .time {
+                        margin-bottom: 20px;
+                        font-size: 12px;
+                    }
+                    .info {
+                        margin-bottom: 50px;
+                    }
+                    .box__footer {
+                        font-size: 12px;
+                        flex: 1;
+                        display: flex;
+                        align-items: end;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive ^___^
+// ======= > Medium Screen < ======= 
+@media (max-width: 992px) {
+    .blog {
+        .container {
+            .blog__title {
+                font-size: 42px;
+                line-height: 55px;
+            }
+            .blog__main {
+                .big-box {
+                    .box {
+                        .box__containe {
+                            .info {
+                                font-size: 22px;
+                            }
+                        }
+                    }
+                }
+                .box {
+                    .box__containe {
+                        .footer {
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ======= > Small Screen < ======= 
+@media (max-width: 668px) {
+    .blog {
+        .container {
+            .blog__title {
+                font-size: 32px;
+                line-height: 45px;
+            }
+            .blog__main {
+                flex-direction: column;
+                text-align: center;
+                .big-box {
+                    .box {
+                        .box__containe {
+                            .info {
+                                font-size: unset;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

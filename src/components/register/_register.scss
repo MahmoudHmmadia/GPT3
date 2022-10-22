@@ -1,0 +1,40 @@
+@use '../../main styles/colors'as*;
+@use '../../main styles/mixins/Button'as*;
+.register {
+    .container {
+        border-radius: 10px;
+        background: $gradient-text;
+        padding: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .register__containe {
+        padding: 10px 30px;
+        h1 {
+            font-weight: 900;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+    }
+    .register__btn {
+        color: #fff;
+        background-color: #000;
+        border-radius: 40px;
+        padding: 10px 30px;
+        transition: .3s all ease-in-out;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 30px;
+        min-width: 190px;
+        text-align: center;
+        &:hover {
+            transform: scale(96%);
+        }
+    }
+}

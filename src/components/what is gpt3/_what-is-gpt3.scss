@@ -1,0 +1,94 @@
+@use '../../main styles/colors'as*;
+@use '../../main styles/mixins/cool-titles'as*;
+@use '../../main styles/mixins/text'as*;
+.what-is-gpt3 {
+    position: relative;
+    padding: 50px;
+    background: radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 85%, rgba(27, 120, 222, 1) 100%);
+    .what-is-gpt3__feature {
+        .feature {
+            display: flex;
+            margin-bottom: 70px;
+            h1 {
+                flex-basis: 50%;
+                @include cool-title-1;
+                font-size: 24px;
+            }
+            p {
+                flex-basis: 90%;
+                @include text
+            }
+        }
+    }
+    .what-is-gpt3__heading {
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 70px;
+            h1 {
+                @include cool-title-2;
+            }
+            p {
+                color: $subtext-color;
+                text-align: right;
+                margin-top: 10px;
+            }
+        }
+    }
+    .what-is-gpt3__containe {
+        display: flex;
+        gap: 30px;
+        h1 {
+            margin-bottom: 50px;
+            @include cool-title-1;
+            font-size: 24px;
+        }
+        p {
+            @include text
+        }
+    }
+}
+
+// Responsive ^___^
+// ======= > Medium Screen < ======= 
+@media (max-width: 992px) {
+    .what-is-gpt3 {
+        .what-is-gpt3__feature {
+            .feature {
+                flex-direction: column;
+                h1 {
+                    margin: 50px auto;
+                    &::after {
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+                p {
+                    text-align: center;
+                }
+            }
+        }
+        .what-is-gpt3__heading {
+            .feature {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                gap: 50px;
+            }
+        }
+        .what-is-gpt3__containe {
+            flex-direction: column;
+            h1 {
+                margin: 50px auto;
+                &::after {
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+            p {
+                text-align: center;
+            }
+        }
+    }
+}

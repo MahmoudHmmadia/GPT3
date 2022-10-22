@@ -1,0 +1,181 @@
+@use "./main styles/colors" as *;
+@use "../../main styles/mixins/Button" as *;
+header {
+    padding: 20px 0;
+    font-weight: 500;
+    line-height: 25px;
+    font-size: 14px;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header__logo {
+            display: flex;
+            align-items: center;
+            margin-right: 50px;
+            img {
+                width: 62.56px;
+                height: 16.02px;
+            }
+        }
+        @media (max-width: 992px) {
+            .header__logo {
+                margin: 0;
+            }
+        }
+        .header__links {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex: 1;
+            li {
+                margin: 0 20px;
+                position: relative;
+                 ::after {
+                    content: "";
+                    width: 0%;
+                    transition: 0.3s all ease-in-out;
+                    height: 1px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    background-color: #ff4820;
+                }
+                 :hover::after {
+                    width: 100%;
+                    left: 0;
+                }
+            }
+        }
+        @media (max-width: 992px) {
+            .header__links {
+                display: none;
+            }
+        }
+        .header__btns {
+            display: flex;
+            gap: 5px;
+            .in {
+                @include btn;
+                color: #ff4820;
+                &:hover {
+                    color: #fff;
+                }
+            }
+            .out {
+                @include btn;
+                background-color: #ff4820;
+                color: #fff;
+            }
+        }
+        @media (max-width: 668px) {
+            .header__btns {
+                display: none;
+            }
+        }
+        .header__menu {
+            position: relative;
+            .menu-btn {
+                display: none;
+                color: #fff;
+                cursor: pointer;
+                svg {
+                    font-size: 27px;
+                }
+            }
+            @media (max-width: 992px) {
+                .menu-btn {
+                    display: block;
+                }
+            }
+            .menu-links {
+                display: flex;
+                z-index: 100;
+                flex-direction: column;
+                position: absolute;
+                background-color: #031b34;
+                padding: 10px 20px;
+                right: 0;
+                min-width: 200px;
+                top: 30px;
+                text-align: center;
+                margin-bottom: 10px;
+                border-radius: 8px;
+                transition: 0.3s all ease-in-out;
+                animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+                li {
+                    padding: 8px 16px;
+                    a {
+                        position: relative;
+                        &::after {
+                            content: "";
+                            width: 0%;
+                            transition: 0.3s all ease-in-out;
+                            height: 1px;
+                            position: absolute;
+                            bottom: 0;
+                            left: 50%;
+                            background-color: #ff4820;
+                        }
+                        &:hover::after {
+                            width: 100%;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive ^___^
+// ======= > Medium Screen < ======= 
+header {
+    .container {
+        @media (max-width: 992px) {
+            .header__logo {
+                margin: 0;
+            }
+        }
+        @media (max-width: 992px) {
+            .header__links {
+                display: none;
+            }
+        }
+        @media (max-width: 668px) {
+            .header__btns {
+                display: none;
+            }
+        }
+        .header__menu {
+            @media (max-width: 992px) {
+                .menu-btn {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+// ======= > Small Screen < ======= 
+header {
+    .container {
+        @media (max-width: 668px) {
+            .header__btns {
+                display: none;
+            }
+        }
+    }
+}
+
+// ======= > Animation < ======= 
+@keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}

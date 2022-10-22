@@ -1,0 +1,23 @@
+@use '../colors'as*;
+@mixin cool-title-1 {
+    color: #fff;
+    position: relative;
+    width: fit-content;
+    &::after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 0;
+        width: 30%;
+        height: 2px;
+        background: $gradient-bar;
+    }
+}
+
+@mixin cool-title-2 {
+    background: $gradient-text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    flex-basis: 50%;
+    font-size: 34px;
+}
